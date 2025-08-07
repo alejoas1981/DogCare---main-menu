@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dog Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* base style for all submenus */
+        .submenu {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        /* show submenu on hover or focus-within */
+        .group:hover > .submenu,
+        .group:focus-within > .submenu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        /* submenu positioning */
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 12rem;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        /* nested submenu position */
+        .submenu .group > .submenu {
+            top: 0;
+            left: auto;
+            right: 100%;
+            margin-left: 0;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+<header class="bg-white shadow">
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center relative">
+        <div class="text-2xl font-bold text-gray-800">DogCare</div>
+        <ul class="hidden md:flex gap-8 items-center">
+            <li class="group relative">
+                <a href="#" class="text-gray-700 hover:text-orange-500 transition">Services</a>
+                <div class="submenu">
+                    <a href="#" class="flex items-center gap-4">
+                        <img src="./images/grooming.png" alt="" class="w-14 h-14 rounded-full object-cover" />
+                        <span class="text-sm font-semibold text-gray-800 hover:text-orange-500">Grooming</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-4">
+                        <img src="./images/walking.png" alt="" class="w-14 h-14 rounded-full object-cover" />
+                        <span class="text-sm font-semibold text-gray-800 hover:text-orange-500">Walking</span>
+                    </a>
+                    <a href="#" class="text-orange-600 hover:underline pt-2 text-sm">See All Services</a>
+                </div>
+            </li>
+            <li class="group relative">
+                <a href="#" class="text-gray-700 hover:text-orange-500 transition">Popular</a>
+                <div class="submenu">
+                    <a href="#" class="text-sm text-gray-700 hover:text-orange-500">Top Rated Groomers</a>
+                    <a href="#" class="text-sm text-gray-700 hover:text-orange-500">Most Booked Services</a>
+                    <a href="#" class="text-sm text-gray-700 hover:text-orange-500">Recommended by Vets</a>
+                </div>
+            </li>
+            <li class="group relative">
+                <a href="#" class="text-gray-700 hover:text-orange-500 transition" tabindex="0">Vet</a>
+                <div class="submenu">
+                    <div class="group relative">
+                        <a href="#" class="text-sm font-semibold text-gray-800 hover:text-orange-500" tabindex="0">Checkups</a>
+                        <div class="submenu">
+                            <a href="#" class="text-xs text-gray-700 hover:text-orange-500">Annual Exam</a>
+                            <a href="#" class="text-xs text-gray-700 hover:text-orange-500">Vaccinations</a>
+                            <a href="#" class="text-xs text-gray-700 hover:text-orange-500">Dental Care</a>
+                        </div>
+                    </div>
+                    <div class="group relative">
+                        <a href="#" class="text-sm font-semibold text-gray-800 hover:text-orange-500" tabindex="0">Emergency</a>
+                        <div class="submenu">
+                            <a href="#" class="text-xs text-gray-700 hover:text-orange-500">24/7 Hotline</a>
+                            <a href="#" class="text-xs text-gray-700 hover:text-orange-500">Urgent Care</a>
+                        </div>
+                    </div>
+                    <div class="group relative">
+                        <a href="#" class="text-sm font-semibold text-gray-800 hover:text-orange-500" tabindex="0">Nutrition</a>
+                        <div class="submenu">
+                            <a href="#" class="text-xs text-gray-700 hover:text-orange-500">Diet Plans</a>
+                            <a href="#" class="text-xs text-gray-700 hover:text-orange-500">Supplements</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="group relative">
+                <a href="#" class="text-gray-700 hover:text-orange-500 transition">Categories</a>
+                <div class="submenu flex flex-wrap gap-4 min-w-[8rem]">
+                    <a href="#" class="flex flex-col items-center text-center w-20">
+                        <img src="./images/puppy.png" alt="" class="w-16 h-16 rounded-full object-cover mb-2" />
+                        <span class="text-xs text-gray-700">Puppy</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-center w-20">
+                        <img src="./images/senior.png" alt="" class="w-16 h-16 rounded-full object-cover mb-2" />
+                        <span class="text-xs text-gray-700">Senior</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-center w-20">
+                        <img src="./images/rescue.png" alt="" class="w-16 h-16 rounded-full object-cover mb-2" />
+                        <span class="text-xs text-gray-700">Rescue</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-center w-20">
+                        <img src="./images/sport.png" alt="" class="w-16 h-16 rounded-full object-cover mb-2" />
+                        <span class="text-xs text-gray-700">Sport</span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <button class="md:hidden text-gray-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </nav>
+</header>
+</body>
+</html>
